@@ -3,6 +3,8 @@ import requests
 
 class BotHandler:
 
+    request_search_url = 'https://google.com/search?q='
+
     def __init__(self, token):
         self.token = token
         self.api_url = "https://api.telegram.org/bot{}/".format(token)
@@ -16,7 +18,8 @@ class BotHandler:
         return response.json()['result']
 
     def send_message(self, chat_id, text):
-        params = {'chat_id': chat_id, 'text': text}
+        text = text.replace(' ', '+')
+        params = {'chat_id': chat_id, 'text': self.request_search_url + text}
         method = 'sendMessage'
         response = requests.post(self.api_url + method, params)
         return response

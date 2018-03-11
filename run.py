@@ -4,7 +4,6 @@ from random import choice
 from bot_handler import BotHandler
 
 token = "558683310:AAFj6qJomJYESkp6WbzRxAWFfV8yQ-lp7IU"
-greetings = ("Привет!", "Здравствуйте!", "Доброго времени суток!")
 
 
 def main():
@@ -32,7 +31,7 @@ def main():
             print("last_chat_id = " + str(last_chat_id))
             print("last_chat_name = " + str(last_chat_name))
 
-            my_bot.send_message(last_chat_id, choice(greetings))
+            my_bot.send_message(last_chat_id, last_chat_text)
             answered_update_id = last_update_id
 
 
