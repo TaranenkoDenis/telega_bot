@@ -4,6 +4,7 @@ import requests
 class TelegaRequestsHelper:
 
     REQUEST_TELEGA_GET_UPDATES = 'getUpdates'
+    REQUEST_TELEGA_SEND = 'getUpdates'
 
     def __init__(self, telega_api_url):
         self.telega_api_url = telega_api_url
@@ -15,13 +16,9 @@ class TelegaRequestsHelper:
         return response.json()['result']
 
     def send_message(self, chat_id, text):
-        print('send_message -> hello from send message')
-        
         params = {'chat_id': chat_id, 'text': text}
-        url = self.telega_api_url + 'sendMessage'
+        url = '{}{}'.format(self.telega_api_url,'sendMessage')
         response = requests.post(url, data=params)
-
-        print('send_message -> we have response')
         return response
 
     def get_last_update(self):
