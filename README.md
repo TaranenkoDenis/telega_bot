@@ -1,2 +1,2 @@
 # telega_bot
-Telegram bot for redirect on google.
+Telegram bot for redirecting on google.
